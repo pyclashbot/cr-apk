@@ -11,6 +11,7 @@ repository = "https://github.com/pyclashbot/cr-apk"
 python = "<3.13,>=3.9"
 cleo = "^2.1.0"
 python-dotenv = "^1.0.1"
+pymemuc = "^0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.9"

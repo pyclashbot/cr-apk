@@ -10,6 +10,12 @@ Installation:
 poetry install
 ```
 
+Pull APKs from device:
+
+```bash
+poetry run cr-apk pull <version> [<package>]
+```
+
 List Available APKs to build:
 
 ```bash

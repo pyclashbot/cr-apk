@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING
 
+from src.consts import BASE_APK_NAME
+
 if TYPE_CHECKING:
     import pathlib
 
@@ -36,8 +38,6 @@ DEFAULT_MANIFEST: dict[str, str | int | list[str] | list[dict[str, str]]] = {
         "com.supercell.clashroyale.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
     ],
 }
-
-BASE_APK_NAME = "com.supercell.clashroyale"
 
 
 def generate_manifest(version: str, apks: list[pathlib.Path], icon: str = "icon.png") -> str:

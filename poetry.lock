@@ -27,6 +27,20 @@ files = [
 ]
 
 [[package]]
+name = "pymemuc"
+version = "0.6.0"
+description = "A Python API for MEmu Android Emulator."
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "pymemuc-0.6.0-py3-none-any.whl", hash = "sha256:ed79165f7511a5cba2da1a5e354247c3ba91d53ab3f95ec0c1dae056f2a0db3d"},
+    {file = "pymemuc-0.6.0.tar.gz", hash = "sha256:c1f5ab9c7834fa1390a2dc2adc56f263134b41876e8d338ed3d7f54b119b5a70"},
+]
+
+[package.dependencies]
+typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
+
+[[package]]
 name = "python-dotenv"
 version = "1.0.1"
 description = "Read key-value pairs from a .env file and set them as environment variables"
@@ -167,7 +181,18 @@ files = [
     {file = "ruff-0.6.9.tar.gz", hash = "sha256:b076ef717a8e5bc819514ee1d602bbdca5b4420ae13a9cf61a0c0a4f53a2baa2"},
 ]
 
+[[package]]
+name = "typing-extensions"
+version = "4.12.2"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
+    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.13,>=3.9"
-content-hash = "98d7e398b4e8f225f0c62b91835a0ad6fead8dc49563736f12983eacd9746a15"
+content-hash = "5ea06095b784f8bdda6a7359152c6536fef4c54247414370f96cc6d6641c00b8"
