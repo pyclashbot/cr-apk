@@ -27,3 +27,9 @@ Build APK:
 ```bash
 poetry run cr-apk build [<version> [<icon>]]
 ```
+
+Deploy APK:
+
+```bash
+poetry run cr-apk deploy [<version>]
+```

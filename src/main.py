@@ -2,12 +2,13 @@
 
 from cleo.application import Application
 
-from src.commands import BuildCommand, ListCommand, PullCommand
+from src.commands import BuildCommand, DeployCommand, ListCommand, PullCommand
 
 application = Application()
 application.add(PullCommand())
 application.add(ListCommand())
 application.add(BuildCommand())
+application.add(DeployCommand())
 
 
 def main() -> None:

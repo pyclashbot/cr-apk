@@ -6,11 +6,9 @@ import logging
 import pathlib
 import zipfile
 
-from src.consts import OUTPUT_DIRECTORY, ASSETS_DIRECTORY
+from src.consts import ASSETS_DIRECTORY, OUTPUT_BASE_NAME, OUTPUT_DIRECTORY
 from src.lib.apk.manifest import generate_manifest
 from src.lib.apk.versions import get_versions
-
-OUTPUT_BASE_NAME = "PYCB_CR"
 
 
 def build_xapk(version: str, icon: str = "icon.png") -> None:
