@@ -3,18 +3,24 @@
 from __future__ import annotations
 
 import logging
+import os
 from typing import TYPE_CHECKING
 
+import dotenv
 from cleo.commands.command import Command
 from cleo.helpers import argument
 from cleo.io.inputs.argument import Argument
+from cleo.io.inputs.option import Option
 
 from src.consts import DEPLOY_TARGET_DIRECTORY, OUTPUT_BASE_NAME, OUTPUT_DIRECTORY
 from src.lib.apk import get_apks
 from src.lib.aws import upload_file_to_s3
+from src.lib.webhook import send_webhook_message
 
 if TYPE_CHECKING:
     from cleo.io.inputs.argument import Argument
+
+dotenv.load_dotenv()
 
 
 class DeployCommand(Command):
@@ -30,6 +36,8 @@ class DeployCommand(Command):
             optional=True,
         ),
     ]
+
+    options = [Option("notify", "N", description="Send webhook notification when done deploying", flag=True)]  # noqa: RUF012
 
     def handle(self) -> None:
         """Handle the command."""
@@ -53,3 +61,9 @@ class DeployCommand(Command):
         logging.debug("Uploading XAPK: %s to S3 bucket", xapk_path)
         upload_file_to_s3(xapk_path, target_dir=DEPLOY_TARGET_DIRECTORY)
         self.line("<info>APK deployed.</info>")
+
+        if self.option("notify"):
+            self.line("<info>Notifying users...</info>")
+            dist_url = os.environ.get("DIST_URL", "") + "/" + xapk_name
+            send_webhook_message(f"APK version {version} has been released.", "Download here", url=dist_url)
+            self.line("<info>Users notified.</info>")
