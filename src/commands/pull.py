@@ -5,8 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from cleo.commands.command import Command
-from cleo.helpers import argument
-from cleo.helpers import option
+from cleo.helpers import argument, option
 
 from src.consts import BASE_APK_NAME
 from src.lib.adb import pull_apks
