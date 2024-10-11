@@ -2,14 +2,14 @@
 
 import pathlib
 
-SCRIPT_DIRECTORY = pathlib.Path(__file__).parent
-OUTPUT_DIRECTORY = SCRIPT_DIRECTORY.parent / "out"
-VERSIONS_DIRECTORY = SCRIPT_DIRECTORY.parent / "versions"
+WORKING_DIRECTORY = pathlib.Path().cwd()
+OUTPUT_DIRECTORY = WORKING_DIRECTORY / "out"
+VERSIONS_DIRECTORY = WORKING_DIRECTORY / "versions"
 
 OUTPUT_DIRECTORY.mkdir(parents=True, exist_ok=True)
 VERSIONS_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
-ASSETS_DIRECTORY = SCRIPT_DIRECTORY.parent / "assets"
+ASSETS_DIRECTORY = WORKING_DIRECTORY / "assets"
 
 BASE_APK_NAME = "com.supercell.clashroyale"
 OUTPUT_BASE_NAME = "PYCB_CR"
