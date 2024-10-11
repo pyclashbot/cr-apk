@@ -1,24 +1,37 @@
 """List command."""
 
+from __future__ import annotations
+
 from cleo.commands.command import Command
 
-from src.lib.apk import get_versions
+from src.lib.apk import get_apks, get_versions
+
+CHUNK_SIZE = 5
 
 
 class ListCommand(Command):
     """Lists all APK versions."""
 
-    name = "list"
+    name = "ls"
     description = "Lists all APK versions"
 
     def handle(self) -> None:
         """Handle the command."""
-        self.line("<comment>Available APK versions:</comment>")
-        versions = get_versions()
+        pulled_versions = [version.name for version in get_versions()]
+        built_versions = [apk.stem.split("_")[-1] for apk in get_apks()]
 
-        # print the versions in chunks of 5
-        versions_list = [version.name for version in versions]
-        for i in range(0, len(versions_list), 5):
-            versions_chunk = versions_list[i : i + 5]
-            versions_string = ", ".join(versions_chunk)
-            self.line(f"<info>{versions_string}</info>")
+        pulled_versions.sort()
+        built_versions.sort()
+
+        def print_in_chunks(lst: list[str], chunk_size: int) -> None:
+            for i in range(0, len(lst), chunk_size):
+                chunk = lst[i : i + chunk_size]
+                chunk_str = ", ".join(chunk)
+                self.line(f"<info>{chunk_str}</info>")
+
+        self.line("<comment>Pulled versions:</comment>")
+        print_in_chunks(pulled_versions, CHUNK_SIZE)
+        self.line("")
+
+        self.line("<comment>Built versions:</comment>")
+        print_in_chunks(built_versions, CHUNK_SIZE)

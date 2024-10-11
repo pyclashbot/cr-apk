@@ -16,10 +16,10 @@ Pull APKs from device:
 poetry run cr-apk pull <version> [<package>] [--adb=<adb executable>]
 ```
 
-List Available APKs to build:
+List pulled and built APKs:
 
 ```bash
-poetry run cr-apk list
+poetry run cr-apk ls
 ```
 
 Build APK:
