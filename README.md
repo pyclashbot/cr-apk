@@ -10,26 +10,18 @@ Installation:
 poetry install
 ```
 
-Pull APKs from device:
+List available commands:
 
 ```bash
-poetry run cr-apk pull <version> [<package>] [--adb=<adb executable>]
+> poetry run crapk list
 ```
 
-List pulled and built APKs:
-
-```bash
-poetry run cr-apk ls
-```
-
-Build APK:
-
-```bash
-poetry run cr-apk build [<version> [<icon>]]
-```
-
-Deploy APK:
-
-```bash
-poetry run cr-apk deploy [<version>]
+```plaintext
+Available commands:
+  build   Builds an APK version
+  deploy  Deploys an APK version
+  help    Displays help for a command.
+  list    Lists commands.
+  ls      Lists all APK versions
+  pull    Pulls an installed application's APKs from the device
 ```
