@@ -13,7 +13,7 @@ poetry install
 Pull APKs from device:
 
 ```bash
-poetry run cr-apk pull <version> [<package>]
+poetry run cr-apk pull <version> [<package>] [--adb=<adb executable>]
 ```
 
 List Available APKs to build:
