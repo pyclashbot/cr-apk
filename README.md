@@ -7,13 +7,13 @@ Clash Royale APK Manager
 Installation:
 
 ```bash
-poetry install
+pipx install cr-apk
 ```
 
 List available commands:
 
 ```bash
-> poetry run crapk list
+> crapk list
 ```
 
 ```plaintext
