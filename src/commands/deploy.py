@@ -55,6 +55,8 @@ class DeployCommand(Command):
             version = max(versions)
             logging.debug("No version provided, using latest version: %s", version)
 
+        self.line(f"<info>Deploying version {version}</info>")
+
         xapk_name = f"{OUTPUT_BASE_NAME}_{version}.xapk"
         xapk_path = OUTPUT_DIRECTORY / xapk_name
 

@@ -41,5 +41,6 @@ crapk ls
 # 80256022
 crapk deploy
 # Deploying APK...
+# Deploying version 80256022
 # APK deployed.
 ```
